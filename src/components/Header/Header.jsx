@@ -47,7 +47,7 @@ export default function Header() {
 
   const handleSubmit=(e)=>{
     e.preventDefault()
-    // console.log("dlsfj")
+      setMobileMenuOpen(false)
       const res=authService.logOut()
       console.log(res)
       dispatch(logout())
@@ -197,6 +197,7 @@ export default function Header() {
               {userData?userData.email=="grootplanthub@gmail.com"?<Link
                   to="/admin"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Account Setting
                 </Link>:"":""}

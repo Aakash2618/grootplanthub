@@ -12,6 +12,7 @@ export default function Cart() {
     const { userData } = useSelector(state => state.authReducer)
     const [qty,setQty]=useState(1)
     useEffect(() => {
+        setLoading(true)
         service.getCartItems(userData)
             .then(res => {
                 if (res) {
@@ -22,6 +23,7 @@ export default function Cart() {
                 console.log(err)
     
             })
+            setLoading(false)
 
     }, [userData])
     const deleteItem=async(id)=>{   
@@ -43,11 +45,11 @@ export default function Cart() {
             })
     }
     const handleChangeQty=(e)=>{
-        console.log(e.target.value)
+        // console.log(e.target.value)
     }
     return (
         <>
-            {data.length==0?(<Spinner/>):(<section>
+            {loading?<Spinner/>:(<section>
             <div className='mt-5'>
                 <header className="text-center">
                     <h1 className="text-xl font-bold text-gray-700 sm:text-3xl">Your Cart</h1>
