@@ -13,7 +13,7 @@ export default function Admin() {
          })}
         </ul>
       </div>
-      <div className="w-[81%] boder border-purple-400 text-center">
+      <div className="w-[90%] md:w-[81%] boder border-purple-400 text-center">
         <PlantAddForm/>
       </div>
     </section>

@@ -20,7 +20,6 @@ export default function PlantAddForm() {
     const handleChange=(e)=>{
         if(e.target.name!=="featured_img"){
             if(e.target.name!=="typ"){
-                console.log("bjjjjjjjjjjjj")
                 setData((prev)=>({...prev,[e.target.name]:e.target.value}))
             }
             else{
@@ -53,7 +52,7 @@ export default function PlantAddForm() {
   else{
     return (
         <div className="w-full bg-gray-50 flex justify-center">       
-            <form onSubmit={handleSubmit} className="mt-3 flex flex-col p-10 w-4/5 md:w-auto bg-white border border-gray-300 sm:p-10 rounded-md shadow mb-3">
+            <form onSubmit={handleSubmit} className="mt-3 flex flex-col p-10 w-full md:w-auto bg-white border border-gray-300 sm:p-10 rounded-md shadow mb-3">
                 <div className='flex flex-col sm:flex-row gap-2'>
                     <div className="text-start">
                         <label className='block mb-1 font-bold' >Name :- </label>
