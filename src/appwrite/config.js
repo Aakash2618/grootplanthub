@@ -97,7 +97,6 @@ export class Service{
 
 // Cart Functionalites
  async addCartItem(data){
-    console.log("from back",data)
     try {
        return await this.databases.createDocument(import.meta.env.VITE_DATABASE_ID,import.meta.env.VITE_CART_ID,ID.unique(),data)
     } catch (error) {
@@ -105,7 +104,6 @@ export class Service{
     }
  }
  async getCartItems({$id}){
-    console.log("dklfj",$id)
     try {
        return await this.databases.listDocuments(import.meta.env.VITE_DATABASE_ID,import.meta.env.VITE_CART_ID,[Query.equal("User_id",[$id])])
     } catch (error) {
