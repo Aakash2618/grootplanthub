@@ -50,7 +50,7 @@ export default function Product() {
           <img className="w-full hidden dark:block rounded-md" src={url} alt={name} />
         </div>
 
-        <div className="mt-6 sm:mt-8 lg:mt-0">
+        <div className="mt-6 pb-16 md:pb-0 sm:mt-8 lg:mt-0">
           <h1
             className="text-xl font-semibold text-gray-900 sm:text-2xl"
           >
