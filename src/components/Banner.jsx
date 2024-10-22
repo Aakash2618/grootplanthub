@@ -37,7 +37,7 @@ export default function Banner() {
           </svg>
           Contact us for more information and exceptional service !
           &nbsp;
-          <strong>+91 8858641361</strong>
+          <strong>+91 8851641361</strong>
         </p>
       </div>
       <div className="flex flex-1 justify-end">

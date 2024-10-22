@@ -13,7 +13,7 @@ export default function Home() {
     const [query,setQuery]=useState("")
     const ID = useId()
     const [all, setAll] = useState([])
-    const categories = [{name:"INDOOR",query:"indoor"}, {name:"OUTDOOR",query:"outdoor"}, {name:"FLOWER PLANT",query:"flower"}, {name:"FRUIT PLANT",query:"fruit"}, {name:"HERBAL PLANT",query:"decorate"}, {name:"PLANT OF SEASON",query:"season"}]
+    const categories = [{name:"INDOOR",query:"indoor"}, {name:"OUTDOOR",query:"outdoor"}, {name:"FLOWER PLANT",query:"flower"}, {name:"HERBAL PLANT",query:"decorate"}, {name:"Water Plant",query:"water"}]
     
     const getData=useCallback(async(query)=>{
         return await service.allPlant(query)

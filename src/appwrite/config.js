@@ -110,7 +110,8 @@ export class Service{
         console.log(error)
     }
  }
- async updateCartItems({$id}){
+ async updateCartItems($id,data){
+    console.log($id,data)
     try {
         return await this.databases.updateDocument(import.meta.env.VITE_DATABASE_ID,import.meta.env.VITE_CART_ID,$id,data)
     } catch (error) {
