@@ -14,7 +14,7 @@ export default function Admin() {
          })}
         </ul>
       </div> */}
-      <div className="w-[90%] md:w-[90%] boder border-purple-400 text-center">
+      <div className="m-auto w-[90%] md:w-[90%] boder border-purple-400 text-center">
         {/* <PlantAddForm/> */}
         <Update/>
       </div>
