@@ -16,6 +16,7 @@ import LogIn from './Pages/LogIn.jsx'
 import PlantAddForm from './Pages/PlantAddForm.jsx'
 import Admin from './Pages/Admin.jsx'
 import Spinner from './components/Spinner.jsx'
+import UpdatePlant from './Pages/UpdatePlant.jsx'
 
 const router=createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router=createBrowserRouter([
       {
         path:"product/signIn",
         element:<SignIn/>
+      },
+      {
+        path:"admin/updatePlant",
+        element:<UpdatePlant/>
       }
       
     ]

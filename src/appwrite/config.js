@@ -1,3 +1,4 @@
+import { Field } from '@headlessui/react';
 import {Storage,Databases,Client,Query,ID} from 'appwrite'
 import { useId } from 'react';
 
@@ -12,8 +13,7 @@ export class Service{
     this.databases=new Databases(this.client)
     this.storage=new Storage(this.client)
  }
- async addPlant({plant_name,typ,featured_img,description,price}){
-    let type=JSON.stringify(typ)
+ async addPlant({plant_name,type,featured_img,description,price}){
     try{
         // console.log(type1)
         // console.log(type)
@@ -23,16 +23,19 @@ export class Service{
         console.log(error)
     }
  }
- async updatePlant(id,{plant_name,description,price,featured_img}){
+ async updatePlant(id,data){
     try {
-        return await this.databases.updateDocument(import.meta.env.VITE_DATABASE_ID,import.meta.env.VITE_COLLECTION_ID,id,{plant_name,description,price,featured_img})
+        await this.deleteFile(data.featured_img)
+        await this.uploadFile()
+        return await this.databases.updateDocument(import.meta.env.VITE_DATABASE_ID,import.meta.env.VITE_COLLECTION_ID,id,data)
     } catch (error) {
         console.log(error)
     }
  }
- async deletePlant(id){
+ async deletePlant(id,fileId){
     try {
        await this.databases.deleteDocument(import.meta.env.VITE_DATABASE_ID,import.meta.env.VITE_COLLECTION_ID,id)
+       await this.deleteFile(fileId)
        return true;
     } catch (error) {
         console.log(error)
@@ -67,13 +70,14 @@ export class Service{
         return res;
         
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         return false;
     }
  }
  async deleteFile(fileId){
     try {
         await this.storage.deleteFile(import.meta.env.VITE_BUCKET_ID,fileId)
+        console.log("deleted successfully")
         return true
     } catch (error) {
         console.log(error)

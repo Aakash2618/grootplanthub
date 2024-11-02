@@ -7,23 +7,18 @@ export default function PlantAddForm() {
     const [loader,setLoader]=useState(false)
     const [data,setData]=useState({
         plant_name:"",
-        type:[],
+        type:"",
         price:null,
         description:"",
         featured_img:null
     })
     const navigate=useNavigate()
-    useEffect(() => {
-        
-        console.log(data)
-    }, [data]);
     const handleChange=(e)=>{
         if(e.target.name!=="featured_img"){
-            if(e.target.name!=="typ"){
+            if(e.target.name!=="type"){
                 setData((prev)=>({...prev,[e.target.name]:e.target.value}))
             }
             else{
-                console.log("else")
                 setData(prev=>({...prev,[e.target.name]:e.target.value}))
             }
         }
@@ -37,7 +32,7 @@ export default function PlantAddForm() {
             if(data.featured_img){
                 setLoader(true)
                 const fileId=await service.uploadFile(data)
-            const res=await service.addPlant({...data,typ:data.typ.split(","),price:parseInt(data.price),featured_img:fileId?fileId.$id:undefined})
+            const res=await service.addPlant({...data,price:parseInt(data.price),featured_img:fileId?fileId.$id:undefined})
                 setLoader(false)
                 if(res){
                     navigate("/")
@@ -60,7 +55,7 @@ export default function PlantAddForm() {
                     </div>
                     <div className="text-start">
                         <label className='block mb-1 font-bold' >Type :- </label>
-                        <input type="text" className='w-[90%] px-4 py-2 rounded-md border-gray-300 bg-gray-50 outline-none border focus:ring-1 focus:border-blue-400' placeholder='Enter Type of the Plant..' name='typ' onChange={handleChange} required/>
+                        <input type="text" className='w-[90%] px-4 py-2 rounded-md border-gray-300 bg-gray-50 outline-none border focus:ring-1 focus:border-blue-400' placeholder='Enter Type of the Plant..' name='type' onChange={handleChange} required/>
                     </div>
                 </div>
                 <div className="mt-3 text-start">
