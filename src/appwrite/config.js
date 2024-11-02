@@ -25,8 +25,6 @@ export class Service{
  }
  async updatePlant(id,data){
     try {
-        await this.deleteFile(data.featured_img)
-        await this.uploadFile()
         return await this.databases.updateDocument(import.meta.env.VITE_DATABASE_ID,import.meta.env.VITE_COLLECTION_ID,id,data)
     } catch (error) {
         console.log(error)
